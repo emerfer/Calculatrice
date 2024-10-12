@@ -15,4 +15,6 @@ Cette application à été programmé en JavaScript, avec le framework Next.js e
 ## Installation
 
 Pour avoir accès, cloner le dépot git sur votre machine:
-git clone
+git clone https://github.com/emerfer/Calculatrice.git
+Ensuite accéder au dossier du projet
+
