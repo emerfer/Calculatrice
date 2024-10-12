@@ -72,14 +72,24 @@ export default function Home() {
             </button>
           ))}
 
-          <button className="p-4 bg-gray-200 rounded text-lg">+/-</button>
+          <button
+            onClick={() => ajouterValeur("-")}
+            className="p-4 bg-gray-200 rounded text-lg"
+          >
+            +/-
+          </button>
           <button
             onClick={() => ajouterValeur("0")}
             className="p-4 bg-gray-200 rounded text-lg"
           >
             0
           </button>
-          <button className="p-4 bg-gray-200 rounded text-lg">.</button>
+          <button
+            onClick={() => ajouterValeur(".")}
+            className="p-4 bg-gray-200 rounded text-lg"
+          >
+            .
+          </button>
           <button
             onClick={() => ajouterValeur("+")}
             className="p-4 bg-gray-200 rounded text-lg"
