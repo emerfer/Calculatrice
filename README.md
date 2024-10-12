@@ -28,6 +28,6 @@ Utilisez C pour réinitialiser le calcul.
 
 ## Technologies Utilisés
 
-HTML pour la structure.
-CSS pour la mise en page et le style.
-JavaScript pour la logique des calculs.
+- HTML pour la structure.
+- CSS pour la mise en page et le style.
+- JavaScript pour la logique des calculs.
