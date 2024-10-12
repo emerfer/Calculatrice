@@ -12,9 +12,23 @@ import { React, useState } from "react";
 
 export default function Home() {
   const [input, setInput] = useState("");
+  const [result, setResult] = useState("");
 
   const ajouterValeur = (valeur) => {
     setInput((base) => base + valeur);
+  };
+
+  const supprimer = () => {
+    setInput("");
+    setResult("");
+  };
+
+  const calculer = () => {
+    try {
+      setResult(eval(input));
+    } catch (error) {
+      setResult("Error");
+    }
   };
 
   return (
@@ -27,7 +41,7 @@ export default function Home() {
             value={input}
             readOnly
           />
-          <div className="text-2xl mt-2"></div>
+          <div className="text-2xl mt-2">{result}</div>
         </div>
         <div className="grid grid-cols-4 gap-2">
           {["7", "8", "9", "/"].map((valeur) => (
@@ -59,13 +73,29 @@ export default function Home() {
           ))}
 
           <button className="p-4 bg-gray-200 rounded text-lg">+/-</button>
-          <button className="p-4 bg-gray-200 rounded text-lg">0</button>
+          <button
+            onClick={() => ajouterValeur("0")}
+            className="p-4 bg-gray-200 rounded text-lg"
+          >
+            0
+          </button>
           <button className="p-4 bg-gray-200 rounded text-lg">.</button>
-          <button className="p-4 bg-gray-200 rounded text-lg">+</button>
-          <button className="col-span-2 p-4 bg-red-400 rounded text-lg">
+          <button
+            onClick={() => ajouterValeur("+")}
+            className="p-4 bg-gray-200 rounded text-lg"
+          >
+            +
+          </button>
+          <button
+            onClick={supprimer}
+            className="col-span-2 p-4 bg-red-400 rounded text-lg"
+          >
             C
           </button>
-          <button className="col-span-2 p-4 bg-green-400 rounded text-lg">
+          <button
+            onClick={calculer}
+            className="col-span-2 p-4 bg-green-400 rounded text-lg"
+          >
             =
           </button>
         </div>
