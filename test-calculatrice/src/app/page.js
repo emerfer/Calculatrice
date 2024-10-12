@@ -3,7 +3,7 @@ import { React, useState } from "react";
 
 /**
  *
- * Affichage de la calculatrice basée avec ChatGPT
+ * Interface de la calculatrice basée avec ChatGPT
  *
  * Permet de faire des calculs comme n'importe quel
  * calculatrice disponible sur un appareil mobile
@@ -11,6 +11,12 @@ import { React, useState } from "react";
  */
 
 export default function Home() {
+  const [input, setInput] = useState("");
+
+  const ajouterValeur = (valeur) => {
+    setInput((base) => base + valeur);
+  };
+
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
       <div className="bg-white rounded-lg shadow-lg p-4 max-w-sm w-full">
@@ -18,24 +24,37 @@ export default function Home() {
           <input
             type="text"
             className="w-full bg-gray-100 p-2 rounded text-right"
+            value={input}
             readOnly
           />
           <div className="text-2xl mt-2"></div>
         </div>
         <div className="grid grid-cols-4 gap-2">
-          {["7", "8", "9", "/"].map((value) => (
-            <button key={value} className="p-4 bg-gray-200 rounded text-lg">
-              {value}
+          {["7", "8", "9", "/"].map((valeur) => (
+            <button
+              key={valeur}
+              onClick={() => ajouterValeur(valeur)}
+              className="p-4 bg-gray-200 rounded text-lg"
+            >
+              {valeur}
             </button>
           ))}
-          {["4", "5", "6", "*"].map((value) => (
-            <button key={value} className="p-4 bg-gray-200 rounded text-lg">
-              {value}
+          {["4", "5", "6", "*"].map((valeur) => (
+            <button
+              key={valeur}
+              onClick={() => ajouterValeur(valeur)}
+              className="p-4 bg-gray-200 rounded text-lg"
+            >
+              {valeur}
             </button>
           ))}
-          {["1", "2", "3", "-"].map((value) => (
-            <button key={value} className="p-4 bg-gray-200 rounded text-lg">
-              {value}
+          {["1", "2", "3", "-"].map((valeur) => (
+            <button
+              key={valeur}
+              onClick={() => ajouterValeur(valeur)}
+              className="p-4 bg-gray-200 rounded text-lg"
+            >
+              {valeur}
             </button>
           ))}
 
