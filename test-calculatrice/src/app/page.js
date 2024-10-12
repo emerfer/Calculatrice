@@ -1,4 +1,5 @@
 "use client";
+import { Input } from "postcss";
 import { React, useState } from "react";
 
 /**
@@ -16,6 +17,21 @@ export default function Home() {
 
   const ajouterValeur = (valeur) => {
     setInput((base) => base + valeur);
+  };
+
+  const plusMoins = () => {
+    let nombres = input.split(/([+\*/])/);
+    let dernierNombre = nombres[nombres.length - 1];
+    if (dernierNombre.startsWith("-")) {
+      nombres[nombres.length - 1] = dernierNombre.slice(1);
+    } else if (dernierNombre.indexOf("-") == -1) {
+      nombres[nombres.length - 1] = "-" + dernierNombre;
+    } else {
+      nombres.pop();
+      nombres = nombres.concat(dernierNombre.split(/([-/])/));
+      nombres[nombres.length - 1] = "-" + nombres[nombres.length - 1];
+    }
+    setInput(nombres.join("").replace("--", "+"));
   };
 
   const supprimer = () => {
@@ -73,7 +89,7 @@ export default function Home() {
           ))}
 
           <button
-            onClick={() => ajouterValeur("-")}
+            onClick={plusMoins}
             className="p-4 bg-gray-200 rounded text-lg"
           >
             +/-
