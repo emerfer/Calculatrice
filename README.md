@@ -23,7 +23,7 @@ Finalement, entrer la commande suivante: npm run dev, et aller à http://localho
 ## Usage 
 
 Utiliser les boutons pour entrer les chiffres et les opérations.
-Cliquez sur = pour obtenir le résultat
+Cliquez sur = pour obtenir le résultat.
 Utilisez C pour réinitialiser le calcul.
 
 ## Technologies Utilisés
